@@ -8,6 +8,7 @@ services:
       labels:
         com.docker.lb.hosts: "$NODEAPP_DOMAIN"
         com.docker.lb.port: 4000
+        com.docker.lb.network: nodeapp_nodeapp-network
     environment:
       - "MONGODB_SERVICE_SERVICE_HOST=nodeapp_db"
     networks:
