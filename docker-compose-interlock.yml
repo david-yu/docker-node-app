@@ -10,8 +10,6 @@ services:
         com.docker.lb.port: 4000
     environment:
       - "MONGODB_SERVICE_SERVICE_HOST=nodeapp_db"
-    ports:
-      - 4000
     networks:
       - nodeapp-network
 

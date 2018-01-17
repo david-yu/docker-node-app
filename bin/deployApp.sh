@@ -1,3 +1,0 @@
-ocker-compose up -d
-curl -H "x-api-key:f10ecd3748e8ab4ba52e12b7e5d1109894e88a6cfc6f3b6" -d "deployment[application_id]=13416057" -d "deployment[description]=Dockerized deployment of new code" -d "deployment[revision]=1242" -d "deployment[changelog]=[JIRA-1234] Dockerized application with HAProxy" -d "deployment[user]=David Yu" https://api.newrelic.com/deployments.xml
-curl -v -X PUT -H 'X-Api-Key:a7f99717809409d14eecfa4927a48a59' -H 'Content-Type: application/json' https://synthetics.newrelic.com/synthetics/api/v1/monitors/5261dee3-9b74-489b-8ad6-ce1de6cece44 -d '{"frequency": 1, "locations": ["AWS_US_WEST_1","LINODE_US_SOUTH_1"], "name" : "newrelic-node-docker", "type":"SCRIPT_BROWSER", "status" : "ENABLED"}'
