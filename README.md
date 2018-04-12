@@ -31,7 +31,7 @@ docker push $DTR_IPADDR/engineering/docker-node-app
 
 
 #### Swarm Mode
-The following stack command brings up two Swarm mode
+The following stack command brings up two Swarm mode services and deploys it with Interlock enabled. Make sure you have the Routing Mesh enabled inside of UCP before deploying.
 
 ```
 # Source client bundle
@@ -50,13 +50,13 @@ kubectl apply -f deploy/k8s/web-controller.yaml
 ### Stop all
 
 #### Swarm Mode
-In case you need to stop everything run:
+This removes the entire stack including services
 ```
 docker stack rm nodeapp
 ```
 
 #### Kubernetes
-
+This removes all of the K8S resources
 ```
 kubectl delete -f deploy/k8s/mongo-service.yaml
 kubectl delete -f deploy/k8s/mongo-controller.yaml
