@@ -1,9 +1,11 @@
-# Docker NodeJS Example with Docker EE 17.06
+# Docker NodeJS Example with Docker EE 2.0
 
 ### Prerequisites
 
-- Docker EE 17.06 Standard and Advanced
-- DTR 2.4.x and UCP 2.2.x
+* Docker EE 2.0
+  * 17.06.3-ee-1 Engine
+  * UCP 3.0.0
+  * DTR 2.5.0
 
 ### Setup UCP and DTR
 
@@ -27,7 +29,7 @@ docker build -t $DTR_IPADDR/engineering/docker-node-app .
 ### Start Example Application
 ```
 # Source client bundle
-docker stack deploy -c docker-compose.yml nodeapp
+docker stack deploy -c deploy/swarm/docker-compose.yml nodeapp
 ```
 
 ### Stop all
@@ -39,5 +41,5 @@ docker stack rm nodeapp
 ### Try deploying app locally for development on Docker CE
 ```
 docker build -t yongshin/docker-node-app .
-docker stack deploy -c docker-compose-local.yml nodeapp
+docker stack deploy -c deploy/swarm/docker-compose-local.yml nodeapp
 ```
