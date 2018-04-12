@@ -24,12 +24,25 @@ export DTR_IPADDR=dtr.local
 git clone git@github.com:yongshin/docker-node-app.git
 cd ~/docker-node-app
 docker build -t $DTR_IPADDR/engineering/docker-node-app .
+docker push $DTR_IPADDR/engineering/docker-node-app
 ```
 
-### Start Example Application
+### Start Example Application (Swarm Mode)
+
+The following stack command brings up two Swarm mode
+
 ```
 # Source client bundle
 docker stack deploy -c deploy/swarm/docker-compose.yml nodeapp
+```
+
+### Start Example Application (Kubernetes)
+```
+# Source client bundle
+kubectl apply -f deploy/k8s/mongo-service.yaml
+kubectl apply -f deploy/k8s/mongo-controller.yaml
+kubectl apply -f deploy/k8s/web-service.yaml
+kubectl apply -f deploy/k8s/web-controller.yaml
 ```
 
 ### Stop all

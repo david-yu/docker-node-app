@@ -1,18 +1,17 @@
-version: '3'
+version: '3.2'
 
 services:
   app:
-    image: $DTR_IPADDR/engineering/docker-node-app:latest
+    image: yongshin/docker-node-app
     deploy:
       replicas: 3
       labels:
-        com.docker.ucp.mesh.http: "external_route=http://nodeapp.david.dtcntr.net,internal_port=4000"
+        com.docker.lb.hosts: "$NODEAPP_DOMAIN"
+        com.docker.lb.port: 4000
+        com.docker.lb.network: nodeapp_nodeapp-network
     environment:
       - "MONGODB_SERVICE_SERVICE_HOST=nodeapp_db"
-    ports:
-      - 4000
     networks:
-      - ucp-hrm
       - nodeapp-network
 
   db:
@@ -33,5 +32,3 @@ volumes:
 networks:
   nodeapp-network:
     driver: overlay
-  ucp-hrm:
-    external: true
