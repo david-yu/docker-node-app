@@ -27,7 +27,7 @@ docker build -t $DTR_IPADDR/engineering/docker-node-app .
 docker push $DTR_IPADDR/engineering/docker-node-app
 ```
 
-### Start Example Application (Swarm Mode)
+### Start Example Application
 
 
 #### Swarm Mode
@@ -64,7 +64,10 @@ kubectl delete -f deploy/k8s/web-service.yaml
 kubectl delete -f deploy/k8s/web-controller.yaml
 ```
 
-### Try deploying app locally for development on Docker CE
+### Run app locally for development purposes on Docker CE
+
+This does not utilize Interlock and mainly leverages the internal Swarm Routing Mesh.
+
 ```
 docker build -t yongshin/docker-node-app .
 docker stack deploy -c deploy/swarm/docker-compose-local.yml nodeapp
