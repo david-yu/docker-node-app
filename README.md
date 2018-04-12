@@ -41,10 +41,7 @@ docker stack deploy -c deploy/swarm/docker-compose.yml nodeapp
 #### Kubernetes
 ```
 # Source client bundle
-kubectl apply -f deploy/k8s/mongo-service.yaml
-kubectl apply -f deploy/k8s/mongo-controller.yaml
-kubectl apply -f deploy/k8s/web-service.yaml
-kubectl apply -f deploy/k8s/web-controller.yaml
+kubectl apply -f deploy/k8s/nodeapp-demo.yaml
 ```
 
 ### Stop all
@@ -58,10 +55,7 @@ docker stack rm nodeapp
 #### Kubernetes
 This removes all of the K8S resources
 ```
-kubectl delete -f deploy/k8s/mongo-service.yaml
-kubectl delete -f deploy/k8s/mongo-controller.yaml
-kubectl delete -f deploy/k8s/web-service.yaml
-kubectl delete -f deploy/k8s/web-controller.yaml
+kubectl delete -f deploy/k8s/nodeapp-demo.yaml
 ```
 
 ### Run app locally for development purposes on Docker CE
