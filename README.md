@@ -3,7 +3,7 @@
 ### Prerequisites
 
 * Docker EE 2.0
-  * 17.06.3-ee-1 Docker Enterprise Engine
+  * 17.06.3-ee-8 Docker Enterprise Engine
   * UCP 3.0.0
   * DTR 2.5.0
 
