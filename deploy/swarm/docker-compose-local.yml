@@ -2,7 +2,7 @@ version: '3.1'
 
 services:
   app:
-    image: yongshin/docker-node-app
+    image: yongshin/docker-node-app:latest
     deploy:
       replicas: 3
     environment:
@@ -11,6 +11,10 @@ services:
       - 4000:4000
     networks:
       - nodeapp-network
+    healthcheck:
+      interval: 5s
+      timeout: 2s
+      retries: 3
 
   db:
     image: mongo

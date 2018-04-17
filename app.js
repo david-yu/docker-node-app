@@ -1,7 +1,6 @@
 /**
  * Module dependencies.
  */
-var david = 'erik_baardse';
 var express = require('express');
 var cookieParser = require('cookie-parser');
 var compress = require('compression');
@@ -20,6 +19,7 @@ var path = require('path');
 var mongoose = require('mongoose');
 var passport = require('passport');
 var expressValidator = require('express-validator');
+var healthcheck = require('express-healthcheck');
 // var sass = require('node-sass-middleware');
 
 /**
@@ -46,7 +46,7 @@ var app = express();
  */
 mongoose.connect(secrets.db);
 mongoose.connection.on('error', function(err) {
-  console.log('MongoDB Connection Error. Please make sure that MongoDB is running.');
+  console.log('MongoDB Connection Error. Please make sure that MongoDB is running. connection info is: %s', secrets.db);
   console.log('Error ' + err);
   process.exit(1);
 });
@@ -102,7 +102,7 @@ app.use(function(req, res, next) {
   next();
 });
 app.use(express.static(path.join(__dirname, 'public'), { maxAge: 31557600000 }));
-
+app.use('/healthcheck', healthcheck());
 
 /**
  * Primary app routes.
