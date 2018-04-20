@@ -12,5 +12,11 @@ image:
 local:
 	docker stack deploy -c deploy/swarm/docker-compose-local.yml nodeapp
 
+build:
+	npm install
+
 rm:
 	docker stack rm nodeapp
+
+clean:
+	rm -rf ./node_modules
